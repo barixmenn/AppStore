@@ -14,6 +14,8 @@
 		608F7D7229F6E3180027E2BD /* AppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608F7D7129F6E3180027E2BD /* AppViewController.swift */; };
 		608F7D7429F6E31F0027E2BD /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608F7D7329F6E31F0027E2BD /* TodayViewController.swift */; };
 		608F7D7629F6E3270027E2BD /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608F7D7529F6E3270027E2BD /* SearchViewController.swift */; };
+		608F7D7929F6E8F60027E2BD /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608F7D7829F6E8F60027E2BD /* SearchCell.swift */; };
+		608F7D7C29F6F50B0027E2BD /* UImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608F7D7B29F6F50B0027E2BD /* UImage+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		608F7D7129F6E3180027E2BD /* AppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewController.swift; sourceTree = "<group>"; };
 		608F7D7329F6E31F0027E2BD /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		608F7D7529F6E3270027E2BD /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		608F7D7829F6E8F60027E2BD /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
+		608F7D7B29F6F50B0027E2BD /* UImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UImage+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,7 @@
 		608F7D5529F6E1320027E2BD /* AppStore */ = {
 			isa = PBXGroup;
 			children = (
+				608F7D7A29F6F4FA0027E2BD /* Extension */,
 				608F7D6C29F6E2520027E2BD /* Scene */,
 				608F7D6B29F6E23B0027E2BD /* Sources */,
 				608F7D6A29F6E21B0027E2BD /* Files */,
@@ -105,6 +110,7 @@
 		608F7D6E29F6E3050027E2BD /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				608F7D7729F6E85F0027E2BD /* Cell */,
 				608F7D7529F6E3270027E2BD /* SearchViewController.swift */,
 			);
 			path = Search;
@@ -124,6 +130,22 @@
 				608F7D7129F6E3180027E2BD /* AppViewController.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		608F7D7729F6E85F0027E2BD /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				608F7D7829F6E8F60027E2BD /* SearchCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		608F7D7A29F6F4FA0027E2BD /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				608F7D7B29F6F50B0027E2BD /* UImage+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,9 +219,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				608F7D7629F6E3270027E2BD /* SearchViewController.swift in Sources */,
+				608F7D7929F6E8F60027E2BD /* SearchCell.swift in Sources */,
 				608F7D7429F6E31F0027E2BD /* TodayViewController.swift in Sources */,
 				608F7D7229F6E3180027E2BD /* AppViewController.swift in Sources */,
 				608F7D5B29F6E1320027E2BD /* MainTaBarController.swift in Sources */,
+				608F7D7C29F6F50B0027E2BD /* UImage+Extension.swift in Sources */,
 				608F7D5729F6E1320027E2BD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
