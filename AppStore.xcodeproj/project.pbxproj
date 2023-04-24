@@ -15,7 +15,13 @@
 		608F7D7429F6E31F0027E2BD /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608F7D7329F6E31F0027E2BD /* TodayViewController.swift */; };
 		608F7D7629F6E3270027E2BD /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608F7D7529F6E3270027E2BD /* SearchViewController.swift */; };
 		608F7D7929F6E8F60027E2BD /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608F7D7829F6E8F60027E2BD /* SearchCell.swift */; };
-		608F7D7C29F6F50B0027E2BD /* UImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608F7D7B29F6F50B0027E2BD /* UImage+Extension.swift */; };
+		608F7D7C29F6F50B0027E2BD /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608F7D7B29F6F50B0027E2BD /* UIImage+Extension.swift */; };
+		608F7D7F29F700F40027E2BD /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 608F7D7E29F700F40027E2BD /* Alamofire */; };
+		608F7D8329F7011C0027E2BD /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608F7D8229F7011C0027E2BD /* SearchService.swift */; };
+		608F7D8629F701250027E2BD /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608F7D8529F701250027E2BD /* Constant.swift */; };
+		608F7D8929F70B900027E2BD /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608F7D8829F70B900027E2BD /* SearchModel.swift */; };
+		60B87C7E29F71CCF00AF7E3B /* SearchCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B87C7D29F71CCF00AF7E3B /* SearchCellViewModel.swift */; };
+		60B87C8129F71F5300AF7E3B /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 60B87C8029F71F5300AF7E3B /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,7 +35,11 @@
 		608F7D7329F6E31F0027E2BD /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		608F7D7529F6E3270027E2BD /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		608F7D7829F6E8F60027E2BD /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
-		608F7D7B29F6F50B0027E2BD /* UImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UImage+Extension.swift"; sourceTree = "<group>"; };
+		608F7D7B29F6F50B0027E2BD /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		608F7D8229F7011C0027E2BD /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
+		608F7D8529F701250027E2BD /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		608F7D8829F70B900027E2BD /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
+		60B87C7D29F71CCF00AF7E3B /* SearchCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +47,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60B87C8129F71F5300AF7E3B /* Kingfisher in Frameworks */,
+				608F7D7F29F700F40027E2BD /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +74,9 @@
 		608F7D5529F6E1320027E2BD /* AppStore */ = {
 			isa = PBXGroup;
 			children = (
+				608F7D8729F70B860027E2BD /* Model */,
+				608F7D8429F7011F0027E2BD /* Constant */,
+				608F7D8029F7010F0027E2BD /* Network */,
 				608F7D7A29F6F4FA0027E2BD /* Extension */,
 				608F7D6C29F6E2520027E2BD /* Scene */,
 				608F7D6B29F6E23B0027E2BD /* Sources */,
@@ -110,6 +125,7 @@
 		608F7D6E29F6E3050027E2BD /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				60B87C7C29F71CC200AF7E3B /* ViewModel */,
 				608F7D7729F6E85F0027E2BD /* Cell */,
 				608F7D7529F6E3270027E2BD /* SearchViewController.swift */,
 			);
@@ -143,9 +159,49 @@
 		608F7D7A29F6F4FA0027E2BD /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				608F7D7B29F6F50B0027E2BD /* UImage+Extension.swift */,
+				608F7D7B29F6F50B0027E2BD /* UIImage+Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		608F7D8029F7010F0027E2BD /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				608F7D8129F701150027E2BD /* Search */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		608F7D8129F701150027E2BD /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				608F7D8229F7011C0027E2BD /* SearchService.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		608F7D8429F7011F0027E2BD /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				608F7D8529F701250027E2BD /* Constant.swift */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
+		608F7D8729F70B860027E2BD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				608F7D8829F70B900027E2BD /* SearchModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		60B87C7C29F71CC200AF7E3B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				60B87C7D29F71CCF00AF7E3B /* SearchCellViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,6 +220,10 @@
 			dependencies = (
 			);
 			name = AppStore;
+			packageProductDependencies = (
+				608F7D7E29F700F40027E2BD /* Alamofire */,
+				60B87C8029F71F5300AF7E3B /* Kingfisher */,
+			);
 			productName = AppStore;
 			productReference = 608F7D5329F6E1320027E2BD /* AppStore.app */;
 			productType = "com.apple.product-type.application";
@@ -192,6 +252,10 @@
 				Base,
 			);
 			mainGroup = 608F7D4A29F6E1320027E2BD;
+			packageReferences = (
+				608F7D7D29F700F40027E2BD /* XCRemoteSwiftPackageReference "Alamofire" */,
+				60B87C7F29F71F5300AF7E3B /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 608F7D5429F6E1320027E2BD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -220,10 +284,14 @@
 			files = (
 				608F7D7629F6E3270027E2BD /* SearchViewController.swift in Sources */,
 				608F7D7929F6E8F60027E2BD /* SearchCell.swift in Sources */,
+				608F7D8629F701250027E2BD /* Constant.swift in Sources */,
+				608F7D8929F70B900027E2BD /* SearchModel.swift in Sources */,
 				608F7D7429F6E31F0027E2BD /* TodayViewController.swift in Sources */,
 				608F7D7229F6E3180027E2BD /* AppViewController.swift in Sources */,
 				608F7D5B29F6E1320027E2BD /* MainTaBarController.swift in Sources */,
-				608F7D7C29F6F50B0027E2BD /* UImage+Extension.swift in Sources */,
+				608F7D8329F7011C0027E2BD /* SearchService.swift in Sources */,
+				60B87C7E29F71CCF00AF7E3B /* SearchCellViewModel.swift in Sources */,
+				608F7D7C29F6F50B0027E2BD /* UIImage+Extension.swift in Sources */,
 				608F7D5729F6E1320027E2BD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -434,6 +502,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		608F7D7D29F700F40027E2BD /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		60B87C7F29F71F5300AF7E3B /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		608F7D7E29F700F40027E2BD /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 608F7D7D29F700F40027E2BD /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		60B87C8029F71F5300AF7E3B /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 60B87C7F29F71F5300AF7E3B /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 608F7D4B29F6E1320027E2BD /* Project object */;
 }

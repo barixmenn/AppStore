@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class SearchCell: UICollectionViewCell {
     //MARK: - UI Elements
@@ -23,13 +24,19 @@ class SearchCell: UICollectionViewCell {
     private let screenPhoto1 : UIImageView = {
         let image = UIImageView()
         image.customMode()
-        image.backgroundColor = .brown
+        image.customScreenshot()
         return image
     }()
     private let screenPhoto2 : UIImageView = {
         let image = UIImageView()
         image.customMode()
-        image.backgroundColor = .brown
+        image.customScreenshot()
+        return image
+    }()
+    private let screenPhoto3 : UIImageView = {
+        let image = UIImageView()
+        image.customMode()
+        image.customScreenshot()
         return image
     }()
     
@@ -68,6 +75,10 @@ class SearchCell: UICollectionViewCell {
     private var fullStackView = UIStackView()
     
     //MARK: - Properties
+    
+    var result: Result?{
+           didSet{ configure() }
+       }
     
     //MARK: - Life Cycle
     override init(frame: CGRect) {
@@ -112,19 +123,19 @@ extension SearchCell {
         headerStackView.translatesAutoresizingMaskIntoConstraints = false
         
         screenStackView = UIStackView(arrangedSubviews: [
-         screenPhoto1,screenPhoto2
+         screenPhoto1,screenPhoto2,screenPhoto3
         ])
         
         screenStackView.axis = .horizontal
         screenStackView.distribution = .fillEqually
-        screenStackView.spacing = 8
+        screenStackView.spacing = 10
         
         fullStackView = UIStackView(arrangedSubviews: [
         headerStackView,screenStackView
         ])
         
         fullStackView.axis = .vertical
-        fullStackView.spacing = 8
+        fullStackView.spacing = 10
         fullStackView.translatesAutoresizingMaskIntoConstraints = false
         
     }
@@ -139,4 +150,18 @@ extension SearchCell {
             fullStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16)
         ])
     }
+    
+    private func configure(){
+        guard let result = self.result else { return }
+        let viewModel = SearchCellViewModel(result: result)
+        self.nameLabel.text = viewModel.nameLabel
+        self.ratingLabel.text = viewModel.ratingLabel
+        self.categoryLabel.text = viewModel.categoryLabel
+        self.appPhoto.kf.setImage(with: viewModel.appIcon)
+        self.screenPhoto1.kf.setImage(with: viewModel.screenPhoto1)
+        self.screenPhoto2.kf.setImage(with: viewModel.screenPhoto2)
+        self.screenPhoto3.kf.setImage(with: viewModel.screenPhoto3)
+
+    }
 }
+
