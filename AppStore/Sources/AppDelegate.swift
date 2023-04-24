@@ -20,10 +20,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         window?.backgroundColor = .systemBackground
-        window?.rootViewController = ViewController()
+        window?.rootViewController = createTabBarController(rootViewController: MainTabBarController())
         return true
     }
     
-    
+    fileprivate func createTabBarController(rootViewController: UITabBarController)-> UITabBarController{
+           let appearance = UITabBarAppearance()
+           appearance.configureWithDefaultBackground()
+           rootViewController.tabBar.standardAppearance = appearance
+           rootViewController.tabBar.scrollEdgeAppearance = appearance
+           return rootViewController
+       }
+
 }
 
