@@ -9,6 +9,7 @@
 import UIKit
 
 private let reuseIdentifier = "appCell"
+private let reuseHeaderIdentifier = "headerCell"
 
 class AppViewController: UICollectionViewController {
     //MARK: - UI Elements
@@ -47,6 +48,7 @@ class AppViewController: UICollectionViewController {
 extension AppViewController {
     private func style() {
         collectionView.register(AppCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        collectionView.register(AppHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: reuseHeaderIdentifier)
     }
     
     private func layout() {
@@ -65,10 +67,20 @@ extension AppViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
         return cell
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+           let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: reuseHeaderIdentifier, for: indexPath)
+          
+           return header
+       }
 }
 
 extension AppViewController : UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return .init(width: view.frame.width, height: 250)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+            return .init(width: view.frame.width, height: 250)
+        }
 }
