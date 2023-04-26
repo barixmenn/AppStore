@@ -9,8 +9,11 @@
 import UIKit
 class AppHeaderView: UICollectionReusableView {
      // MARK: - Properties
-   
+    
     private let appsHeaderViewController = AppHeaderController()
+    var appsHeaderResult: [AppHeaderModel] = []{
+        didSet{ appsHeaderViewController.appsHeaderResult = appsHeaderResult  }
+        }
     
      // MARK: - Lifecycle
     override init(frame: CGRect) {

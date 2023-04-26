@@ -11,10 +11,10 @@ import Kingfisher
 class SearchCellViewModel {
     
     //MARK: - Properties
-    let result : Result
+    let result : Results
     
     //MARK: - Lifecycle
-    init(result: Result) {
+    init(result: Results) {
         self.result = result
     }
     

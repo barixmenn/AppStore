@@ -32,7 +32,9 @@ class AppHeaderCell: UICollectionViewCell {
     private var stackView: UIStackView!
     
     // MARK: - Properties
-
+    var appHeaderModel: AppHeaderModel?{
+            didSet{ configure() }
+        }
      // MARK: - Lifecycle
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -51,7 +53,6 @@ class AppHeaderCell: UICollectionViewCell {
 }
 extension AppHeaderCell{
     private func style(){
-        backgroundColor = .red
         stackView = UIStackView(arrangedSubviews: [firmLabel,titleLabel,appImage])
         stackView.axis = .vertical
         stackView.spacing = 12
@@ -66,4 +67,12 @@ extension AppHeaderCell{
             stackView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
+    
+    private func configure(){
+          guard let result = self.appHeaderModel else { return }
+          let viewModel = AppHeaderViewModel(result: result)
+          self.titleLabel.text = viewModel.title
+          self.firmLabel.text = viewModel.name
+          self.appImage.kf.setImage(with: viewModel.imageUrl)
+      }
 }

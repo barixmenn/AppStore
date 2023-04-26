@@ -21,7 +21,7 @@ class SearchViewController: UICollectionViewController, UISearchControllerDelega
     }()
     
     //MARK: - Properties
-    var searchResults: [Result] = []{
+    var searchResults: [Results] = []{
         didSet{ collectionView.reloadData() }
     }
     

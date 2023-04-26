@@ -76,7 +76,7 @@ class SearchCell: UICollectionViewCell {
     
     //MARK: - Properties
     
-    var result: Result?{
+    var result: Results?{
            didSet{ configure() }
        }
     

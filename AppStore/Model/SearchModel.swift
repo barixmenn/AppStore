@@ -6,11 +6,11 @@
 //
 
 import Foundation
-struct SearchResult: Decodable {
+struct SearchResult: Codable {
     let resultCount: Int
-    let results: [Result]
+    let results: [Results]
 }
-struct Result: Decodable {
+struct Results: Codable {
     let primaryGenreName: String
     let artworkUrl100: String
     let trackName: String

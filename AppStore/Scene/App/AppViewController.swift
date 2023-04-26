@@ -16,7 +16,12 @@ class AppViewController: UICollectionViewController {
   
     
     //MARK: - Properties
-    
+    private var feedArray : [Feed] = [] {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
+     var appsHeaderResult: [AppHeaderModel] = []
     //MARK: - Life Cycle
     
     init() {
@@ -37,12 +42,38 @@ class AppViewController: UICollectionViewController {
     private func setup() {
         style()
         layout()
+        fetchDatailData()
+
     }
     
     //MARK: - Actions
     
 }
 
+// MARK: - Service
+extension AppViewController{
+    private func fetchDatailData(){
+        let dispatchGroup = DispatchGroup()
+        dispatchGroup.enter()
+        AppService.fetchData(urlString: URL_TOPFREE ) { feed in
+            dispatchGroup.leave()
+            self.feedArray.append(feed)
+        }
+        dispatchGroup.enter()
+        AppService.fetchData(urlString: URL_TOPPAID) { feed in
+            dispatchGroup.leave()
+            self.feedArray.append(feed)
+        }
+        dispatchGroup.enter()
+        AppService.fetchHeaderData(urlString: URL_HEADER) { result in
+            dispatchGroup.leave()
+            self.appsHeaderResult = result
+        }
+        dispatchGroup.notify(queue: .main) {
+            self.collectionView.reloadData()
+        }
+    }
+}
 
 //MARK: - Helpers
 extension AppViewController {
@@ -57,19 +88,22 @@ extension AppViewController {
 }
 
 
+
 //MARK: - CollectionView Extensions
 extension AppViewController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return feedArray.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! AppCell
+        cell.feed = feedArray[indexPath.row]
         return cell
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-           let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: reuseHeaderIdentifier, for: indexPath)
+           let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: reuseHeaderIdentifier, for: indexPath) as! AppHeaderView
+        header.appsHeaderResult = self.appsHeaderResult
           
            return header
        }
@@ -77,10 +111,14 @@ extension AppViewController {
 
 extension AppViewController : UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return .init(width: view.frame.width, height: 250)
+        return .init(width: view.frame.width - 10, height: 250)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
             return .init(width: view.frame.width, height: 250)
         }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return .init(top: 0, left: 10, bottom: 0, right: 0)
+    }
 }

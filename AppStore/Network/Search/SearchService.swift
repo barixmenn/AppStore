@@ -10,9 +10,9 @@ import Alamofire
 
 
 struct searchService {
-    static func fetchData(searchtext term: String,completion: @escaping([Result])->Void){
+    static func fetchData(searchtext term: String,completion: @escaping([Results])->Void){
         let parameters = ["entity":"software" ,"term":term]
-        AF.request(ServiceEndPoint.searchEndPoint() ,method: .get,parameters: parameters).responseData { responseData in
+        AF.request(SEARCH_URL ,method: .get,parameters: parameters).responseData { responseData in
             if let error = responseData.error{
                 print(error.localizedDescription)
                 return
@@ -29,3 +29,5 @@ struct searchService {
         }
     }
 }
+
+

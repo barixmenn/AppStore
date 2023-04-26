@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class AppDetailCell : UICollectionViewCell {
     
@@ -38,6 +39,11 @@ class AppDetailCell : UICollectionViewCell {
     var labelStackView: UIStackView!
     var fullStackView: UIStackView!
     
+    //MARK: - Properties
+     var result: FeedResult?{
+        didSet { configure() }
+    }
+    
     //MARK: - Life Cycle
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -58,7 +64,6 @@ class AppDetailCell : UICollectionViewCell {
 //MARK: - Helper
 extension AppDetailCell {
     private func style() {
-        backgroundColor = .cyan
         labelStackView = UIStackView(arrangedSubviews: [nameLabel,firmLabel])
         labelStackView.axis = .vertical
         fullStackView = UIStackView(arrangedSubviews: [appIcon,labelStackView,getButton])
@@ -83,5 +88,13 @@ extension AppDetailCell {
             fullStackView.trailingAnchor.constraint(equalTo: trailingAnchor),
             fullStackView.bottomAnchor.constraint(equalTo: bottomAnchor),
         ])
+    }
+    
+    private func configure() {
+        guard let result = self.result else {return}
+        let viewModel = AppDetailCellViewModel(result: result)
+        self.nameLabel.text = viewModel.name
+        self.firmLabel.text = viewModel.artistName
+        self.appIcon.kf.setImage(with: viewModel.appImageUrl)
     }
 }

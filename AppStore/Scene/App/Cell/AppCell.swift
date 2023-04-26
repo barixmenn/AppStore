@@ -15,12 +15,15 @@ class AppCell : UICollectionViewCell {
     private let sectionLabel : UILabel = {
         let label = UILabel()
         label.text = "Section Label"
-        label.font = UIFont.systemFont(ofSize: 22)
+        label.font = UIFont.preferredFont(forTextStyle: .title2)
         return label
     }()
     
     //MARK: - Properties
     private let appCellController = AppCellController()
+    var feed:Feed?{
+            didSet{ configure() }
+        }
     
     //MARK: - Life Cycle
     override init(frame: CGRect) {
@@ -42,7 +45,6 @@ class AppCell : UICollectionViewCell {
 
 extension AppCell {
     private func style() {
-        backgroundColor = .brown
     }
     
     private func layout() {
@@ -65,4 +67,9 @@ extension AppCell {
         ])
         
     }
+    private func configure(){
+          guard let feed = self.feed else { return }
+          self.sectionLabel.text = feed.title
+          self.appCellController.results = feed.results
+      }
 }
