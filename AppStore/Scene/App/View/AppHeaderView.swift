@@ -11,6 +11,7 @@ class AppHeaderView: UICollectionReusableView {
      // MARK: - Properties
     
     private let appsHeaderViewController = AppHeaderController()
+    
     var appsHeaderResult: [AppHeaderModel] = []{
         didSet{ appsHeaderViewController.appsHeaderResult = appsHeaderResult  }
         }
@@ -34,7 +35,7 @@ extension AppHeaderView{
     private func layout(){
         addSubview(appsHeaderViewController.view)
         NSLayoutConstraint.activate([
-            appsHeaderViewController.view.topAnchor.constraint(equalTo: topAnchor),
+            appsHeaderViewController.view.topAnchor.constraint(equalTo: topAnchor, constant: 13),
             appsHeaderViewController.view.leadingAnchor.constraint(equalTo: leadingAnchor),
             appsHeaderViewController.view.trailingAnchor.constraint(equalTo: trailingAnchor),
             appsHeaderViewController.view.bottomAnchor.constraint(equalTo: bottomAnchor,constant: -8),

@@ -10,8 +10,8 @@ import UIKit
 private let reuseIdentifier = "searchCell"
 
 class SearchViewController: UICollectionViewController, UISearchControllerDelegate {
-    //MARK: - UI Elements
     
+    //MARK: - UI Elements
     private let centerLabel: UILabel = {
         let label = UILabel()
         label.text = "Enter the name of the application you are looking for.."

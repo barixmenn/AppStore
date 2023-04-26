@@ -14,8 +14,9 @@ class AppCell : UICollectionViewCell {
     
     private let sectionLabel : UILabel = {
         let label = UILabel()
+        label.font = .boldSystemFont(ofSize: 22)
         label.text = "Section Label"
-        label.font = UIFont.preferredFont(forTextStyle: .title2)
+        //label.font = UIFont.preferredFont(forTextStyle: .title3)
         return label
     }()
     
@@ -55,12 +56,12 @@ extension AppCell {
         appCellController.view.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            sectionLabel.topAnchor.constraint(equalTo: topAnchor),
+            sectionLabel.topAnchor.constraint(equalTo: topAnchor,constant: 15),
             sectionLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             sectionLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
             
             // appCell
-            appCellController.view.topAnchor.constraint(equalTo: sectionLabel.bottomAnchor),
+            appCellController.view.topAnchor.constraint(equalTo: sectionLabel.bottomAnchor ,constant: 15),
             appCellController.view.leadingAnchor.constraint(equalTo: leadingAnchor),
             appCellController.view.trailingAnchor.constraint(equalTo: trailingAnchor),
             appCellController.view.bottomAnchor.constraint(equalTo: bottomAnchor)

@@ -15,12 +15,13 @@ class AppHeaderCell: UICollectionViewCell {
     private let appImage: UIImageView = {
        let imageView = UIImageView()
         imageView.customMode()
-        imageView.backgroundColor = .cyan
+        imageView.layer.cornerRadius = 10
         return imageView
     }()
     private let firmLabel: UILabel = {
        let label = UILabel()
         label.text = "Linkedin"
+        label.font = .boldSystemFont(ofSize: 19)
         label.textColor = .blue
         return label
     }()
@@ -55,8 +56,9 @@ extension AppHeaderCell{
     private func style(){
         stackView = UIStackView(arrangedSubviews: [firmLabel,titleLabel,appImage])
         stackView.axis = .vertical
-        stackView.spacing = 12
+        stackView.spacing = 8
         stackView.translatesAutoresizingMaskIntoConstraints = false
+        appImage.translatesAutoresizingMaskIntoConstraints = false
     }
     private func layout(){
         addSubview(stackView)

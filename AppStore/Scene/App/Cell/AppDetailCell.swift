@@ -21,11 +21,15 @@ class AppDetailCell : UICollectionViewCell {
     private let nameLabel: UILabel = {
         let label = UILabel()
         label.text = "App Name"
+        label.font = UIFont.systemFont(ofSize: 17)
+        label.adjustsFontSizeToFitWidth = true
         return label
     }()
     private let firmLabel: UILabel = {
         let label = UILabel()
         label.text = "Firm Label"
+        label.font = UIFont.systemFont(ofSize: 15)
+        label.adjustsFontSizeToFitWidth = true
         return label
     }()
     private lazy var getButton:UIButton = {
@@ -33,7 +37,7 @@ class AppDetailCell : UICollectionViewCell {
         button.setTitle("Get", for: .normal)
         button.setTitleColor(UIColor.blue, for: .normal)
         button.backgroundColor = UIColor(white: 0.88, alpha: 1)
-        button.layer.cornerRadius = 34 / 2
+        button.layer.cornerRadius = 12
         return button
     }()
     var labelStackView: UIStackView!
@@ -69,7 +73,7 @@ extension AppDetailCell {
         fullStackView = UIStackView(arrangedSubviews: [appIcon,labelStackView,getButton])
         fullStackView.axis = .horizontal
         fullStackView.alignment = .center
-        fullStackView.spacing = 8
+        fullStackView.spacing = 9
         fullStackView.translatesAutoresizingMaskIntoConstraints = false
         
         
@@ -79,7 +83,7 @@ extension AppDetailCell {
     private func layout() {
         addSubview(fullStackView)
         NSLayoutConstraint.activate([
-            appIcon.widthAnchor.constraint(equalToConstant: 80),
+            appIcon.widthAnchor.constraint(equalToConstant: 65),
             appIcon.heightAnchor.constraint(equalToConstant: 65),
             getButton.widthAnchor.constraint(equalToConstant: 80),
             getButton.heightAnchor.constraint(equalToConstant: 34),

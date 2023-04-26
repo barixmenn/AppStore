@@ -21,7 +21,7 @@ class AppViewController: UICollectionViewController {
             collectionView.reloadData()
         }
     }
-     var appsHeaderResult: [AppHeaderModel] = []
+     private var appsHeaderResult: [AppHeaderModel] = []
     //MARK: - Life Cycle
     
     init() {
