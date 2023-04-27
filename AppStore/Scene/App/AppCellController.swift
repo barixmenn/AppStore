@@ -8,6 +8,9 @@
 import UIKit
 private let reuseIdentifier = "appCellDetail"
 
+protocol AppCellControllerProtocol: AnyObject {
+    func goAppInfoViewController(id: String)
+}
 
 class AppCellController: UICollectionViewController {
      // MARK: - Properties
@@ -17,6 +20,8 @@ class AppCellController: UICollectionViewController {
             self.collectionView.reloadData()
         }
     }
+    
+    weak var delegate : AppCellControllerProtocol?
   
      // MARK: - Lifecycle
      init() {
@@ -47,8 +52,8 @@ extension AppCellController{
     }
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! AppDetailCell
-        
         cell.result = self.results[indexPath.row]
+        cell.delegate = self
         return cell
     }
 }
@@ -60,7 +65,12 @@ extension AppCellController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 3
     }
-    
-  
-   
+}
+
+// MARK: - AppCellDetailCellProtocol
+extension AppCellController: AppDetailCellProtocol{
+   func goAppInfoViewController(id: String) {
+       delegate?.goAppInfoViewController(id: id)
+   }
+
 }

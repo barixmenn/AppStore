@@ -8,6 +8,10 @@
 import UIKit
 import Kingfisher
 
+protocol AppDetailCellProtocol : AnyObject {
+    func goAppInfoViewController(id: String)
+}
+
 class AppDetailCell : UICollectionViewCell {
     
     //MARK: - UI Elements
@@ -47,6 +51,7 @@ class AppDetailCell : UICollectionViewCell {
      var result: FeedResult?{
         didSet { configure() }
     }
+    weak var delegate : AppDetailCellProtocol?
     
     //MARK: - Life Cycle
     override init(frame: CGRect) {
@@ -65,6 +70,13 @@ class AppDetailCell : UICollectionViewCell {
     }
 }
 
+// MARK: - Selectors
+extension AppDetailCell{
+   @objc private func handleSelf(){
+       delegate?.goAppInfoViewController(id: result?.id ?? "")
+   }
+}
+
 //MARK: - Helper
 extension AppDetailCell {
     private func style() {
@@ -76,8 +88,8 @@ extension AppDetailCell {
         fullStackView.spacing = 9
         fullStackView.translatesAutoresizingMaskIntoConstraints = false
         
-        
-        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleSelf))
+        self.addGestureRecognizer(tapGesture)
     }
     
     private func layout() {

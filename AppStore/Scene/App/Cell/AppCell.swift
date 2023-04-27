@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol AppCellProtocol : AnyObject {
+    func goAppInfoViewController(id: String)
+}
+
 
 class AppCell : UICollectionViewCell {
     
@@ -25,7 +29,7 @@ class AppCell : UICollectionViewCell {
     var feed:Feed?{
             didSet{ configure() }
         }
-    
+    weak var delegate : AppCellProtocol?
     //MARK: - Life Cycle
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -46,6 +50,7 @@ class AppCell : UICollectionViewCell {
 
 extension AppCell {
     private func style() {
+        appCellController.delegate = self
     }
     
     private func layout() {
@@ -73,4 +78,12 @@ extension AppCell {
           self.sectionLabel.text = feed.title
           self.appCellController.results = feed.results
       }
+}
+
+
+extension AppCell : AppCellControllerProtocol {
+    func goAppInfoViewController(id: String) {
+        delegate?.goAppInfoViewController(id: id)
+    }
+    
 }

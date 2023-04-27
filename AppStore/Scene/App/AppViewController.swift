@@ -14,7 +14,6 @@ private let reuseHeaderIdentifier = "headerCell"
 class AppViewController: UICollectionViewController {
     //MARK: - UI Elements
   
-    
     //MARK: - Properties
     private var feedArray : [Feed] = [] {
         didSet {
@@ -98,6 +97,7 @@ extension AppViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! AppCell
         cell.feed = feedArray[indexPath.row]
+        cell.delegate = self
         return cell
     }
     
@@ -121,4 +121,16 @@ extension AppViewController : UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return .init(top: 0, left: 10, bottom: 0, right: 0)
     }
+}
+
+
+//MARK:  -AppViewController
+extension AppViewController : AppCellProtocol {
+    func goAppInfoViewController(id: String) {
+        print(id)
+        let controller = AppInfoController()
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    
 }
