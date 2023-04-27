@@ -13,10 +13,17 @@ class AppInfoController : UICollectionViewController  {
     //MARK: - UI Elements
     
     //MARK: - Properties
+    var results: [Results] = []{
+            didSet{ collectionView.reloadData() }
+        }
+    
+    let appID: String
     
     //MARK: - Lifecycle
-     init() {
+    init(id:String) {
+         self.appID = id
          super.init(collectionViewLayout: UICollectionViewFlowLayout())
+         fetchData(id: appID)
          setup()
     }
     
@@ -30,11 +37,21 @@ class AppInfoController : UICollectionViewController  {
         layout()
     }
 }
+// MARK: - Service
+extension AppInfoController{
+   private func fetchData(id: String){
+       searchService.fetchDataID(id: id) { result in
+           self.results = result
+       }
+   }
+ 
+}
 
+//MARK: - Helper
 extension AppInfoController {
     private func style() {
         self.navigationItem.largeTitleDisplayMode = .never
-        collectionView.register(AppInfoCell.self, forCellWithReuseIdentifier: reuseHeaderIdentifier)
+        collectionView.register(AppInfoHeaderCell.self, forCellWithReuseIdentifier: reuseHeaderIdentifier)
     }
     
     private func layout() {
@@ -45,11 +62,12 @@ extension AppInfoController {
 //MARK: - UICollectionViewDataSource
 extension AppInfoController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return results.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseHeaderIdentifier, for: indexPath) as! AppInfoCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseHeaderIdentifier, for: indexPath) as! AppInfoHeaderCell
+        cell.result = results[indexPath.row]
         return cell
     }
 }

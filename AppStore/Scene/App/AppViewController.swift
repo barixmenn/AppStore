@@ -128,7 +128,7 @@ extension AppViewController : UICollectionViewDelegateFlowLayout {
 extension AppViewController : AppCellProtocol {
     func goAppInfoViewController(id: String) {
         print(id)
-        let controller = AppInfoController()
+        let controller = AppInfoController(id: id)
         self.navigationController?.pushViewController(controller, animated: true)
     }
     
