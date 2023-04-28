@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		600BAA5029FC4AB500BC3677 /* ScreenshotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600BAA4F29FC4AB500BC3677 /* ScreenshotCell.swift */; };
+		600BAA5229FC4AD100BC3677 /* ScreenShotCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600BAA5129FC4AD100BC3677 /* ScreenShotCellViewController.swift */; };
+		600BAA5429FC4B3800BC3677 /* ScreenshotDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600BAA5329FC4B3800BC3677 /* ScreenshotDetailCell.swift */; };
+		600BAA5629FC4F0500BC3677 /* ScreenShotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600BAA5529FC4F0500BC3677 /* ScreenShotViewModel.swift */; };
 		6011DCA529F9339200686D69 /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6011DCA429F9339200686D69 /* AppService.swift */; };
 		6011DCB029F938C700686D69 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6011DCAF29F938C700686D69 /* AppModel.swift */; };
 		6011DCB329F93EDD00686D69 /* AppDetailCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6011DCB229F93EDD00686D69 /* AppDetailCellViewModel.swift */; };
@@ -18,7 +22,7 @@
 		601795EB29F87B7F003C2DE2 /* AppHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601795EA29F87B7E003C2DE2 /* AppHeaderCell.swift */; };
 		601795EE29F87C80003C2DE2 /* AppHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601795ED29F87C80003C2DE2 /* AppHeaderView.swift */; };
 		601795F029F87CAA003C2DE2 /* AppHeaderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601795EF29F87CAA003C2DE2 /* AppHeaderController.swift */; };
-		60209EE229FB13A7004103BD /* AppInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60209EE129FB13A7004103BD /* AppInfoController.swift */; };
+		60209EE229FB13A7004103BD /* AppInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60209EE129FB13A7004103BD /* AppInfoViewController.swift */; };
 		60209EE529FB1495004103BD /* AppInfoHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60209EE429FB1495004103BD /* AppInfoHeaderCell.swift */; };
 		60209EE729FB21D4004103BD /* AppInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60209EE629FB21D4004103BD /* AppInfoViewModel.swift */; };
 		608F7D5729F6E1320027E2BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608F7D5629F6E1320027E2BD /* AppDelegate.swift */; };
@@ -39,6 +43,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		600BAA4F29FC4AB500BC3677 /* ScreenshotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotCell.swift; sourceTree = "<group>"; };
+		600BAA5129FC4AD100BC3677 /* ScreenShotCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenShotCellViewController.swift; sourceTree = "<group>"; };
+		600BAA5329FC4B3800BC3677 /* ScreenshotDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotDetailCell.swift; sourceTree = "<group>"; };
+		600BAA5529FC4F0500BC3677 /* ScreenShotViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenShotViewModel.swift; sourceTree = "<group>"; };
 		6011DCA429F9339200686D69 /* AppService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppService.swift; sourceTree = "<group>"; };
 		6011DCAF29F938C700686D69 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 		6011DCB229F93EDD00686D69 /* AppDetailCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailCellViewModel.swift; sourceTree = "<group>"; };
@@ -50,7 +58,7 @@
 		601795EA29F87B7E003C2DE2 /* AppHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppHeaderCell.swift; sourceTree = "<group>"; };
 		601795ED29F87C80003C2DE2 /* AppHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppHeaderView.swift; sourceTree = "<group>"; };
 		601795EF29F87CAA003C2DE2 /* AppHeaderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppHeaderController.swift; sourceTree = "<group>"; };
-		60209EE129FB13A7004103BD /* AppInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoController.swift; sourceTree = "<group>"; };
+		60209EE129FB13A7004103BD /* AppInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoViewController.swift; sourceTree = "<group>"; };
 		60209EE429FB1495004103BD /* AppInfoHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoHeaderCell.swift; sourceTree = "<group>"; };
 		60209EE629FB21D4004103BD /* AppInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoViewModel.swift; sourceTree = "<group>"; };
 		608F7D5329F6E1320027E2BD /* AppStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,6 +105,7 @@
 				6011DCB229F93EDD00686D69 /* AppDetailCellViewModel.swift */,
 				6011DCB429F941DC00686D69 /* AppHeaderViewModel.swift */,
 				60209EE629FB21D4004103BD /* AppInfoViewModel.swift */,
+				600BAA5529FC4F0500BC3677 /* ScreenShotViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -108,6 +117,8 @@
 				601795EA29F87B7E003C2DE2 /* AppHeaderCell.swift */,
 				601795E829F8756E003C2DE2 /* AppDetailCell.swift */,
 				60209EE429FB1495004103BD /* AppInfoHeaderCell.swift */,
+				600BAA4F29FC4AB500BC3677 /* ScreenshotCell.swift */,
+				600BAA5329FC4B3800BC3677 /* ScreenshotDetailCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -213,8 +224,9 @@
 				601795E329F867DD003C2DE2 /* Cell */,
 				608F7D7129F6E3180027E2BD /* AppViewController.swift */,
 				601795E629F87268003C2DE2 /* AppCellController.swift */,
+				600BAA5129FC4AD100BC3677 /* ScreenShotCellViewController.swift */,
 				601795EF29F87CAA003C2DE2 /* AppHeaderController.swift */,
-				60209EE129FB13A7004103BD /* AppInfoController.swift */,
+				60209EE129FB13A7004103BD /* AppInfoViewController.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -359,6 +371,7 @@
 				608F7D7629F6E3270027E2BD /* SearchViewController.swift in Sources */,
 				6011DCA529F9339200686D69 /* AppService.swift in Sources */,
 				608F7D7929F6E8F60027E2BD /* SearchCell.swift in Sources */,
+				600BAA5229FC4AD100BC3677 /* ScreenShotCellViewController.swift in Sources */,
 				60209EE729FB21D4004103BD /* AppInfoViewModel.swift in Sources */,
 				6011DCB329F93EDD00686D69 /* AppDetailCellViewModel.swift in Sources */,
 				608F7D8629F701250027E2BD /* Constant.swift in Sources */,
@@ -369,17 +382,20 @@
 				608F7D5B29F6E1320027E2BD /* MainTaBarController.swift in Sources */,
 				608F7D8329F7011C0027E2BD /* SearchService.swift in Sources */,
 				60B87C7E29F71CCF00AF7E3B /* SearchCellViewModel.swift in Sources */,
+				600BAA5429FC4B3800BC3677 /* ScreenshotDetailCell.swift in Sources */,
 				6011DCB729F941F900686D69 /* HeaderModel.swift in Sources */,
 				6011DCB029F938C700686D69 /* AppModel.swift in Sources */,
+				600BAA5029FC4AB500BC3677 /* ScreenshotCell.swift in Sources */,
 				601795E729F87268003C2DE2 /* AppCellController.swift in Sources */,
 				601795E529F867E3003C2DE2 /* AppCell.swift in Sources */,
 				608F7D7C29F6F50B0027E2BD /* UIImage+Extension.swift in Sources */,
 				60209EE529FB1495004103BD /* AppInfoHeaderCell.swift in Sources */,
 				6011DCB529F941DC00686D69 /* AppHeaderViewModel.swift in Sources */,
-				60209EE229FB13A7004103BD /* AppInfoController.swift in Sources */,
+				60209EE229FB13A7004103BD /* AppInfoViewController.swift in Sources */,
 				601795EB29F87B7F003C2DE2 /* AppHeaderCell.swift in Sources */,
 				601795E929F8756E003C2DE2 /* AppDetailCell.swift in Sources */,
 				601795F029F87CAA003C2DE2 /* AppHeaderController.swift in Sources */,
+				600BAA5629FC4F0500BC3677 /* ScreenShotViewModel.swift in Sources */,
 				608F7D5729F6E1320027E2BD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

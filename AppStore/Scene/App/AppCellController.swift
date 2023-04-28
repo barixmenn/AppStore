@@ -13,30 +13,29 @@ protocol AppCellControllerProtocol: AnyObject {
 }
 
 class AppCellController: UICollectionViewController {
-     // MARK: - Properties
-    
-     var results : [FeedResult] = [] {
+    // MARK: - Properties
+    var results : [FeedResult] = [] {
         didSet {
             self.collectionView.reloadData()
         }
     }
     
     weak var delegate : AppCellControllerProtocol?
-  
-     // MARK: - Lifecycle
-     init() {
-         let flowLayout = UICollectionViewFlowLayout()
-         flowLayout.scrollDirection = .horizontal
+    
+    // MARK: - Lifecycle
+    init() {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.scrollDirection = .horizontal
         super.init(collectionViewLayout: flowLayout)
-         style()
-         layout()
+        style()
+        layout()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
- // MARK: - Helpers
+// MARK: - Helpers
 extension AppCellController{
     private func style(){
         collectionView.register(AppDetailCell.self, forCellWithReuseIdentifier: reuseIdentifier)
@@ -45,7 +44,7 @@ extension AppCellController{
         
     }
 }
- // MARK: - UICollcetionViewDataSource
+// MARK: - UICollcetionViewDataSource
 extension AppCellController{
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return results.count    
@@ -57,7 +56,7 @@ extension AppCellController{
         return cell
     }
 }
- // MARK: - UICollectionViewDelegateFlowLayout
+// MARK: - UICollectionViewDelegateFlowLayout
 extension AppCellController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return .init(width: view.frame.width - 30, height: (view.frame.height) / 3 - 3 )
@@ -69,8 +68,8 @@ extension AppCellController: UICollectionViewDelegateFlowLayout{
 
 // MARK: - AppCellDetailCellProtocol
 extension AppCellController: AppDetailCellProtocol{
-   func goAppInfoViewController(id: String) {
-       delegate?.goAppInfoViewController(id: id)
-   }
-
+    func goAppInfoViewController(id: String) {
+        delegate?.goAppInfoViewController(id: id)
+    }
+    
 }
