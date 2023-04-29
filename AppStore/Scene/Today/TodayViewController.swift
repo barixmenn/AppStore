@@ -29,7 +29,10 @@ class TodayViewController: UICollectionViewController {
     
     override func viewWillAppear(_ animated: Bool) {
           super.viewWillAppear(animated)
-          self.navigationController?.navigationBar.isHidden = true
+        navigationController?.navigationBar.prefersLargeTitles = false
+        let profile = UIBarButtonItem(image: UIImage(systemName: "person.crop.circle"), style: .done, target: self, action: nil)
+        profile.tintColor = .black
+        navigationItem.rightBarButtonItem = profile
       }
     
     //MARK: - Functions
@@ -99,14 +102,11 @@ extension TodayViewController {
            } completion: { _ in
                
            }
-
-           
        }
 }
 
 
 //MARK: - UICollectionViewDelegateFlowLayout
-
 extension TodayViewController : UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return .init(width: view.frame.width / 1.2, height: 400)

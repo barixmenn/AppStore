@@ -11,7 +11,7 @@ import UIKit
 
 private let reuseIdentifier = "TableDetailViewCell"
 class TodayDetailCellController: UITableViewController {
-     // MARK: - Properties
+    // MARK: - Properties
     private var todayViewModel: TodayViewModel?
     var today: Today?{
         didSet{
@@ -24,10 +24,10 @@ class TodayDetailCellController: UITableViewController {
         imageView.layer.cornerRadius = 14
         return imageView
     }()
-     // MARK: - Lifecycle
-     init() {
+    // MARK: - Lifecycle
+    init() {
         super.init(style: .grouped)
-         setup()
+        setup()
     }
     
     required init?(coder: NSCoder) {
@@ -38,7 +38,7 @@ class TodayDetailCellController: UITableViewController {
         view.layer.cornerRadius = 14
     }
 }
- // MARK: - Helpers
+// MARK: - Helpers
 extension TodayDetailCellController{
     private func setup(){
         tableView.estimatedRowHeight = 80
@@ -53,7 +53,7 @@ extension TodayDetailCellController{
         tableView.reloadData()
     }
 }
- // MARK: - UITableViewDataSource
+// MARK: - UITableViewDataSource
 extension TodayDetailCellController{
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
@@ -64,7 +64,7 @@ extension TodayDetailCellController{
         return cell
     }
 }
- // MARK: - UITableViewHeader
+// MARK: - UITableViewHeader
 extension TodayDetailCellController{
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return detailImageView
