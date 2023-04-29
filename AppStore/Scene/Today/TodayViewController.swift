@@ -13,8 +13,9 @@ class TodayViewController: UICollectionViewController {
     //MARK: - UI Elements
     
     //MARK: - Properties
+    private let todayModelResult : [Today] = modelData
     private var startLocation: CGRect?
-    var todayDetailViewController = TodayDetailCellController()
+    private let todayDetailViewController = TodayDetailCellController()
     
     //MARK: - Life Cycle
      init() {
@@ -72,11 +73,12 @@ extension TodayViewController{
 //MARK: - CollectionViewDataSource
 extension TodayViewController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return todayModelResult.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! TodayCell
+        cell.today = self.todayModelResult[indexPath.row]
         return cell
     }
 }
@@ -87,7 +89,7 @@ extension TodayViewController {
            let item = collectionView.cellForItem(at: indexPath)
            self.startLocation = item?.superview?.convert(item?.frame ?? .zero, to: nil)
            todayDetailViewController.view.frame = startLocation ?? .zero
-           //todayDetailViewController.today = self.todayModelResult[indexPath.row]
+           todayDetailViewController.today = self.todayModelResult[indexPath.row]
            self.todayDetailViewController.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTodayDetailViewController)))
            addChild(todayDetailViewController)
            view.addSubview(todayDetailViewController.view)
@@ -107,7 +109,7 @@ extension TodayViewController {
 
 extension TodayViewController : UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return .init(width: view.frame.width / 1.2, height: 250)
+        return .init(width: view.frame.width / 1.2, height: 400)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
