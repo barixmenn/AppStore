@@ -13,6 +13,8 @@ class TodayViewController: UICollectionViewController {
     //MARK: - UI Elements
     
     //MARK: - Properties
+    private var startLocation: CGRect?
+    var todayDetailViewController = TodayDetailCellController()
     
     //MARK: - Life Cycle
      init() {
@@ -25,8 +27,9 @@ class TodayViewController: UICollectionViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.navigationBar.prefersLargeTitles = false
-    }
+          super.viewWillAppear(animated)
+          self.navigationController?.navigationBar.isHidden = true
+      }
     
     //MARK: - Functions
     private func setup() {
@@ -51,7 +54,22 @@ extension TodayViewController {
     }
 }
 
-//MARK: - CollectionViewDelegate
+// MARK: - selector
+extension TodayViewController{
+   @objc private func handleTodayDetailViewController(_ sender: UITapGestureRecognizer){
+       UIView.animate(withDuration: 0.8, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.8) {
+           self.todayDetailViewController.view.frame = self.startLocation ?? .zero
+           self.tabBarController?.tabBar.alpha = 1
+       } completion: { _ in
+           self.todayDetailViewController.removeFromParent()
+           self.todayDetailViewController.view.removeFromSuperview()
+        
+       }
+
+   }
+}
+
+//MARK: - CollectionViewDataSource
 extension TodayViewController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 4
@@ -61,6 +79,27 @@ extension TodayViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
         return cell
     }
+}
+
+//MARK: - CollectionViewDelegate
+extension TodayViewController {
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+           let item = collectionView.cellForItem(at: indexPath)
+           self.startLocation = item?.superview?.convert(item?.frame ?? .zero, to: nil)
+           todayDetailViewController.view.frame = startLocation ?? .zero
+           //todayDetailViewController.today = self.todayModelResult[indexPath.row]
+           self.todayDetailViewController.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTodayDetailViewController)))
+           addChild(todayDetailViewController)
+           view.addSubview(todayDetailViewController.view)
+           UIView.animate(withDuration: 0.8, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.8) {
+               self.todayDetailViewController.view.frame = self.view.frame
+               self.tabBarController?.tabBar.alpha = 0
+           } completion: { _ in
+               
+           }
+
+           
+       }
 }
 
 
